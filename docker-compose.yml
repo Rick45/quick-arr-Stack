@@ -16,7 +16,6 @@ services:
       - '/dev/net/tun:/dev/net/tun'
     ports:
       - '8112:8112' #deluge web UI Port
-      - '9696:9696' #prowlarr web UI Port
     command: '-f "" -r 192.168.68.0/24'
 
   deluge:
@@ -46,11 +45,8 @@ services:
     volumes:
       - '${ROOT}/MediaCenter/config/prowlarr:/config'
     restart: unless-stopped
-    #ports:
-    #  - '9696:9696' #uncomment if you are not using the VPN
-    network_mode: 'service:vpn' #comment/remove if you are not using the VPN
-    depends_on:                 #comment/remove if you are not using the VPN
-      - vpn                     #comment/remove if you are not using the VPN
+    ports:
+      - '9696:9696' #uncomment if you are not using the VPN
 
   sonarr:
     container_name: sonarr

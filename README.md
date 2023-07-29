@@ -703,8 +703,13 @@ The following containers are nice to have and are not required for the "mediaBox
 
 
 ### Setup Wireguard
-We'll use Wireguard Docker image from linuxserver https://hub.docker.com/r/linuxserver/wireguard
+We'll use Wireguard Docker image from linuxserver [Docker image from linuxserver](https://hub.docker.com/r/linuxserver/wireguard )
 This container will allow to connect to all your services outside your home network exposing only one port
+
+
+_Note_: Its required to open the port 51820 in your routher to be abbe to connect with the vpn to your home network.
+
+The following website have some example of how to port forward for most of routhers: [portforward.com](https://portforward.com/router.htm)
 
 
 #### Wireguard Docker container
@@ -748,7 +753,6 @@ To follow container logs, run `docker-compose logs -f wireguard`.
 #### Wireguard Configuration
 
 
-_Note_: Its required to open the port 51820 in your routher to be abbe to connect with the vpn to your home network.
 
 All the users credentials will be crated inside the config folder for wireguard ${ROOT}/MediaCenter/config/wireguard/peerX where peerX will be peer1, 2, 3,...
 
@@ -758,7 +762,7 @@ All the users credentials will be crated inside the config folder for wireguard 
 
 ## Overseerr Setup
 
-We'll use Overseerr official Docker image  https://hub.docker.com/r/sctx/overseerr
+We'll use Overseerr [official Docker image](https://hub.docker.com/r/sctx/overseerr)
 Overseerr is a request management and media discovery tool built to work with your existing Plex ecosystem.
 Overseerr helps you find media you want to watch. With inline recommendations and suggestions, you will find yourself deeper and deeper in a rabbit hole of content you never knew you just had to have.
 

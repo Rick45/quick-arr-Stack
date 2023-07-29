@@ -7,9 +7,11 @@ services:
       - 'OTHER_ARGS= --mute-replay-warnings'
     cap_add:
       - net_admin
+      - SYS_MODULE
     restart: unless-stopped
     volumes:
       - '${ROOT}/MediaCenter/config/vpn:/vpn'
+      - /lib/modules:/lib/modules
     security_opt:
       - 'label:disable'
     devices:

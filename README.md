@@ -671,10 +671,10 @@ After this, all the required configurations are done and everything should work.
 Go to Radarr to the `Movies` tab and click on `Add New`, search for a Movie, I'm going to use `The Last Man on Earth (1964)` as is a Public Domain Movie.
 This will automatically fill in all the required information. You can adapt these parameters as you see fit. Make sure that you define a `Monitor` type so the movie is automatically downloaded
 
-
+![Adding The Last Man on Earth (1964) ](img/testingRadarr.png)
 
 Now if you click on `Movies` tab the added movie will display with a colour showing the current status of it, and some seconds after it should automatically start to download.
-![Adding Flash Gordon (1954)](img/testingRadarrMovieAdded.png)
+![Added The Last Man on Earth (1964)](img/testingRadarrMovieAdded.png)
 
 Is also possible to manually search and many other options but that is beyond the scope of this guide.
 

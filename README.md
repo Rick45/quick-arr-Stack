@@ -19,16 +19,16 @@ _Disclaimer: I'm not encouraging/supporting piracy, this is for information purp
     - [Install docker and docker-compose](#install-docker-and-docker-compose)
     - [Clone the repository](#clone-the-repository)
     - [Setup environment variables](#setup-environment-variables)
+    - [Folder Setup](#folder-structure)
     - [Setup a VPN Container](#setup-a-vpn-container)
       - [VPN Option](#vpn-option)
-      - [Folder Setup](#folder-structure)
       - [purevpn.com custom setup](#purevpncom-custom-setup)
       - [Docker container](#vpn-docker-container)
     - [Setup Deluge](#setup-deluge)
       - [Docker container](#deluge-docker-container)
       - [Configuration](#deluge-configuration)
     - [Setup Plex](#setup-plex)
-      - [Media Server Docker Container](#media-server-docker-container)
+      - [Docker Container](#media-server-docker-container)
       - [Configuration](#plex-configuration)
     - [Setup Sonarr](#setup-sonarr)
       - [Docker container](#sonarr-docker-container)
@@ -148,6 +148,33 @@ Things to notice:
 
 ***
 
+
+
+#### Folder Structure
+
+Currently i'm doing this in this way as it is(for what i found) the most straitforward method to have the [Hard link](https://en.wikipedia.org/wiki/Hard_link) for files to work without issues, this halves the amount of size while the torrent is seeding, and solve some access issues that i first while doing this setup.
+
+
+Inside the folder from where you cloned the repository run the following command:  `docker-compose up -d --remove-orphans`.
+
+Then run the following ones:
+
+`sudo chown -R $USER:$USER /path/to/ROOT/directory` 
+ 
+and 
+ 
+`sudo chown -R $USER:$USER /path/to/HDDSTORAGE/directory` 
+ 
+This will allow you to create folders, copy and paste files, this could be also required for Sonarr and Radarr to do some opetations.
+
+After this Create 2 folders in the `Storage\Completed` folder, `Movies` and `TV`, this will be used later.
+
+
+![Folder Structure](img/folderStructure.png)
+
+
+
+
 ### Setup a VPN Container
 
 #### VPN Option
@@ -170,19 +197,6 @@ This must come up with some safety features:
 Configuration is explained on the [project page](https://github.com/dperson/openvpn-client), you can follow it.
 However it is not that easy depending on your VPN server settings.
 I'm using a purevpn.com VPN, so here is how I set it up.
-
-
-#### Folder Structure
-_Note: You may need to `sudo chown -R $USER:$USER /path/to/ROOT/directory` and `sudo chown -R $USER:$USER /path/to/HDDSTORAGE/directory` so you can create folders and copy and paste files, this could be also required for Sonarr and Radarr to do some opetations.
-
-After this 2 commands you should be abble to create, copy and paste files inside the new two folders.
-
-After this Create 2 folders in the `Storage\Completed` folder, `Movies` and `TV`, this will be used later.
-Currently i'm doing this in this way as it is(for what i found) the best way to have the files [Hard link](https://en.wikipedia.org/wiki/Hard_link) to work without issues. This halves the amount of size while the torrent is seeding.
-
-
-
-![Folder Structure](img/folderStructure.png)
 
 
 #### purevpn.com custom setup

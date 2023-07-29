@@ -101,7 +101,7 @@ services:
     volumes:
       - '${ROOT}/MediaCenter/config/plex/db:/config'
       - '${ROOT}/MediaCenter/config/plex/transcode:/transcode'
-      - '${HDDSTORAGE}/Completed:/HDD_Completed'
+      - '${HDDSTORAGE}/Completed:/MediaCenterBox'
 
   tautulli:
     image: lscr.io/linuxserver/tautulli

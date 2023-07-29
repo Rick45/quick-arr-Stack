@@ -1,12 +1,12 @@
 ## Quick Arr Stack
 
-TV shows and movies download, sort, with the desired quality and subtitles, behind a VPN (optional), ready to watch, in a beautiful media player.
+TV shows and movies download, sorted, with the desired quality and subtitles, behind a VPN (optional), ready to watch, in a beautiful media player.
 All automated.
 
-On top of the original configurations added information related to the PureVPN configurations and added an wireguard docker to acess content of the media center outside the home networkd without the need of open the Plex port.
+On top of the original configurations added information related to the PureVPN configurations and added a wireguard docker to access the content of the media center outside the home network without the need to open the Plex port.
 
 
-_Disclaimer: I'm not encouraging/supporting piracy, this is for information purpose only._
+_Disclaimer: I'm not encouraging/supporting piracy, this is for information only._
 
 ## Table of Contents
 
@@ -58,13 +58,13 @@ This is a quick guide of how to build a server with a [Servarr stack](https://wi
 
 How does it work?
 
-This is composed by multiple tools working together to have an automated way to monitor and watch your favorite TV Shows and Movies
+This is composed of multiple tools working together to have an automated way to monitor and watch your favourite TV Shows and Movies
 
 **Downloaders**:
 
-- [OpenVPN Client](https://github.com/dperson/openvpn-client) (optional but highly recomended): container is used to Deluge and Prowlarr to encapsulate the incoming/outgoing traffic.
+- [OpenVPN Client](https://github.com/dperson/openvpn-client) (optional but highly recommended): the container is used by Deluge to encapsulate the incoming/outgoing traffic.
 - [Deluge](http://deluge-torrent.org/) handles torrent download.
-- [Prowlarr](https://prowlarr.com/): is an indexer manager/proxy built on the popular *arr .net/reactjs base stack to integrate with your various PVR apps. Prowlarr supports management of both Torrent Trackers and Usenet Indexers.
+- [Prowlarr](https://prowlarr.com/): is an indexer manager/proxy built on the popular *arr .net/reactjs base stack to integrate with your various PVR apps. Prowlarr supports the management of both Torrent Trackers and Usenet Indexers.
 - [Bazarr](https://www.bazarr.media/) is a companion application to Sonarr and Radarr. It manages and downloads subtitles based on your requirements. You define your preferences by TV show or movie and Bazarr takes care of everything for you.
 
 **Download orchestration**:
@@ -74,20 +74,20 @@ This is composed by multiple tools working together to have an automated way to 
 
 **Media Center**:
 
-- [Plex](https://plex.tv): media center server with streaming transcoding features, useful plugins and a beautiful UI. Clients available for a lot of systems (Linux/OSX/Windows, Web, Android, Chromecast, Android TV, etc.)
+- [Plex](https://plex.tv): media center server with streaming transcoding features, useful plugins and a beautiful UI. Clients available for many systems (Linux/OSX/Windows, Web, Android, Chromecast, Android TV, etc.)
 
 
 **Optional**:
 
 - [Overseerr](https://overseerr.dev/):  is a free and open source software application for managing requests for your media library. It integrates with your existing services, such as Sonarr, Radarr, and Plex!
 
-- [Wireguard](https://github.com/linuxserver/docker-wireguard): is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. This will allow to connect to our home network without from anyware and use the plex app outside of our house without a plex pass subscription.
+- [Wireguard](https://github.com/linuxserver/docker-wireguard): is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. This will allow us to connect to our home network  from anywhere and use the Plex app outside of our house without a Plex pass subscription.
 
 ## Hardware configuration
 
-You can use a old Laptop with Debian, Raspberry Pi, a Synology NAS, a Windows or Mac computer. The stack should work fine on all these systems, but you'll have to adapt the Docker stack below to your OS. I'll only focus on a standard Linux installation here.
+You can use an old Laptop with Debian, Raspberry Pi, a Synology NAS, or a Windows or Mac computer. The stack should work fine on all these systems, but you must adapt the Docker stack below to your OS. I'll only focus on a standard Linux installation here.
 
-Keep in mind that all the movies and shows are downloaded to your computer, so a Hard Drive with high capacity is recomended.
+Keep in mind that all the movies and shows are downloaded to your computer, so a Hard Drive with high capacity is recommended.
 
 ## Software stack
 
@@ -105,7 +105,7 @@ Then add yourself to the `docker` group:
 Make sure it works fine:
 `docker run hello-world`
 
-Also install docker-compose (see the [official instructions](https://docs.docker.com/compose/install/#install-compose)).
+Also, install docker-compose (see the [official instructions](https://docs.docker.com/compose/install/#install-compose)).
 
 ### Clone the repository
 
@@ -119,7 +119,7 @@ This tutorial will guide you along the full process of making your own docker-co
 
 Rename the `.env.example` file included in the repo to `.env`.
 
-Here is an example of what your `.env` file should look like, use values that fit for your own setup.
+Here is an example of what your `.env` file should look like, use values that fit your own setup.
 
 ```sh
 # Your timezone, https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
@@ -152,7 +152,7 @@ Things to notice:
 
 #### Folder Structure
 
-Currently i'm doing this in this way as it is(for what i found) the most straitforward method to have the [Hard link](https://en.wikipedia.org/wiki/Hard_link) for files to work without issues, this halves the amount of size while the torrent is seeding, and solve some access issues that i first while doing this setup.
+Currently, I'm doing this in this way as it is(from what I found) the most straightforward method to have the [Hard link](https://en.wikipedia.org/wiki/Hard_link) for files to work without issues, this halves the amount of size while the torrent is seeding, and solve some access issues that I first while doing this setup.
 
 
 Inside the folder from where you cloned the repository run the following command:  `docker-compose up -d --remove-orphans`.
@@ -165,7 +165,7 @@ and
  
 `sudo chown -R $USER:$USER /path/to/HDDSTORAGE/directory` 
  
-This will allow you to create folders, copy and paste files, this could be also required for Sonarr and Radarr to do some opetations.
+This will allow you to create folders, copy and paste files, this could be also required for Sonarr and Radarr to do some operations.
 
 After this Create 2 folders in the `Storage\Completed` folder, `Movies` and `TV`, this will be used later.
 
@@ -179,8 +179,8 @@ After this Create 2 folders in the `Storage\Completed` folder, `Movies` and `TV`
 
 #### VPN Option
 
-If you do not owne a VPN you can bypass this step.
-  - Is required to comment the hilighed lines in the `docker-compose.yml`
+If you do not own a VPN you can bypass this step.
+  - Is required to comment the highlighted lines in the `docker-compose.yml`
  example:
  ```sh
     #ports:
@@ -195,7 +195,7 @@ The goal here is to have an OpenVPN Client container running and always connecte
 This must come up with some safety features:
 
 Configuration is explained on the [project page](https://github.com/dperson/openvpn-client), you can follow it.
-However it is not that easy depending on your VPN server settings.
+However, it is not that easy depending on your VPN server settings.
 I'm using a purevpn.com VPN, so here is how I set it up.
 
 
@@ -203,8 +203,8 @@ I'm using a purevpn.com VPN, so here is how I set it up.
 
 _Note_: this section only applies for [PureVPN](purevpn.com) accounts.
 
-1. Delete all content in `${ROOT}/config/vpn` and replace it by the ones available in the repo folder `Config Files\config\vpn(PureVPN)`
-1. Download the openVPN filed from [PureVPN website](https://support.purevpn.com/openvpn-files).
+1. Delete all content in `${ROOT}/config/vpn` and replace it with the ones available in the repo folder `Config Files\config\vpn(PureVPN)`
+1. Download the openVPN file from [PureVPN website](https://support.purevpn.com/openvpn-files).
 1. Open the file in the udp folder related to the country/connection that you want to use.
 1. Copy the remote value in the file and replace it on the vpn.conf file that is 
 
@@ -245,7 +245,7 @@ To follow container logs, run `docker-compose logs -f vpn`.
 
 #### Deluge Docker container
 
-We'll use deluge Docker image from linuxserver, which runs both the deluge daemon and web UI in a single container.
+We'll use the deluge Docker image from linuxserver, which runs both the deluge daemon and web UI in a single container.
 
 ```yaml
 deluge:
@@ -278,7 +278,7 @@ To follow container logs, run `docker-compose logs -f deluge`.
 
 #### Deluge Docker container
 
-NOTE(Not Advised): If you dont own a VPN and want to use this without VPN  use the follwing compose, this WILL EXPOSE your real IP adress.
+NOTE(Not Advised): If you don't own a VPN and want to use this without VPN  use the following compose, this WILL EXPOSE your real IP address.
 ```yaml
 
   deluge:
@@ -303,28 +303,25 @@ NOTE(Not Advised): If you dont own a VPN and want to use this without VPN  use t
 
 #### Deluge Configuration
 
-##### NOTE: if the bellow page does not open and you are using the VPN normally is means that something is wrong with the vpn itself!
+##### NOTE: if the bellow page does not open and you are using the VPN normally it means that something is wrong with the VPN itself!
 
-You should be able to login on the web UI (`localhost:8112`, replace `localhost` by your machine ip if needed).
+You should be able to log in on the web UI (`localhost:8112`, replace `localhost` with your machine ip if needed).
 
 ![Deluge Login](img/DelugeLogin.png)
 
 
 The default password is `deluge`. You are asked to modify it.
 
-The running deluge daemon should be automatically detected and appear as online, you can connect to it.
+The running deluge daemon should be automatically detected and appear online, you can connect to it.
 
 ![Deluge daemon](img/DelugeDaemon.png)
 
-You may want to change the download directory. I like to have to distinct directories for incomplete (ongoing) downloads, and complete (finished) ones.
-Also, I set up a blackhole directory: every torrent file in there will be downloaded automatically. This is useful for Jackett manual searches.
-
-You should activate `autoadd` in the plugins section: it adds supports for `.magnet` files.
+You should activate `autoadd` in the plugins section: it adds support for `.magnet` files.
 
 ![Deluge paths](img/DelugePaths.png)
 
 
-You should activate `Label` in the plugins section: it adds supports for labels in sonarr and radarr
+You should activate `Label` in the plugins section: it adds support for labels in Sonarr and Radarr
 
 ![Deluge Plugins](img/DelugeLabelPlugin.png)
 
@@ -338,10 +335,10 @@ Configuration gets stored automatically in your mounted volume (`${ROOT}/config/
 You can use the Web UI manually to download any torrent from a .torrent file or magnet hash.
 
 
-Notice how deluge is now using the vpn container network, with deluge web UI and prowlarr port exposed on the vpn container for local network access.
+Notice how Deluge is now using the VPN container network, with Deluge web UI and Prowlarr port exposed on the vpn container for local network access.
 
 You can check that deluge is properly going out through the VPN IP by using [torguard check](https://torguard.net/checkmytorrentipaddress.php).
-Get the torrent magnet link there, put it in Deluge, wait a bit, then you should see your outgoing torrent IP on the website.
+Get the torrent magnet link there, put it in Deluge, and wait a bit, and then you should see your outgoing torrent IP on the website.
 
 ![Torrent guard](img/torrent_guard.png)
 
@@ -377,7 +374,7 @@ To follow container logs, run `docker-compose logs -f plex-server`.
 #### Plex Configuration
 
 Plex Web UI should be available at `localhost:32400/web` (replace `localhost` by your server ip if needed).
-You'll have to login first (registration is free), then Plex will ask you to add your libraries.
+You'll have to log in first (registration is free), and then Plex will ask you to add your libraries.
 I have two libraries:
 
 - Movies
@@ -434,7 +431,7 @@ Then run the container with `docker-compose up -d --remove-orphans`.
 
 To follow container logs, run `docker-compose logs -f sonarr`.
 
-Sonarr web UI listens on port 8989 by default. You need to mount your tv shows directory (the one where everything will be nicely sorted and named). And your download folder, because sonarr will look over there for completed downloads, then move them to the appropriate directory.
+Sonarr web UI listens on port 8989 by default. You need to mount your tv shows directory (the one where everything will be nicely sorted and named). And your download folder, because Sonarr will look over there for completed downloads, then move them to the appropriate directory.
 
 #### Sonarr Configuration
 
@@ -443,7 +440,7 @@ Sonarr should be available on `localhost:8989`. Go straight to the `Settings` ta
 
 Sonarr should be ready out of the box, there are multiple settings and configurations that you can explore later but we are going to start with the basics.
 
-`Root Folders` is in the Media Management tab, here we add the `/MediaCenterBox/Completed/TV/` folder. This will be the default derectory where all the TV Shows will be stored
+`Root Folders` is in the Media Management tab, here we add the `/MediaCenterBox/Completed/TV/` folder. This will be the default directory where all the TV Shows will be stored
 
 ![Sonarr Root Folders](img/SonarRootFolders.png)
 
@@ -454,7 +451,7 @@ Deluge configuration:
 
 ![Sonarr Deluge configuration](img/SonarrDelugeConfig.png)
 
-Enable `Advanced Settings`, and tick `Remove Completed` in the Completed Download Handling section. This tells Sonarr to remove torrents from deluge once processed.
+Enable `Advanced Settings`, and tick `Remove Completed` in the Completed Download Handling section. This tells Sonarr to remove torrents from Deluge once processed.
 
 
 `Indexers` is the important tab: that's where Sonarr will grab information about released episodes. This will be automatically configurated by [Prowlarr](#setup-prowlarr)
@@ -468,7 +465,7 @@ In `Connect` tab, we'll configure Sonarr to send notifications to Plex when a ne
 
 ### Setup Radarr
 
-Radarr is a fork of Sonarr, made for movies instead of TV shows. For a good while I've used CouchPotato for that exact purpose, but have not been really happy with the results. Radarr intends to be as good as Sonarr !
+Radarr is a fork of Sonarr, made for movies instead of TV shows. For a good while I've used CouchPotato for that exact purpose, but have not been really happy with the results. Radarr intends to be as good as Sonarr!
 
 #### Radarr Docker container
 
@@ -503,18 +500,18 @@ Radarr should be available on `localhost:7878`. Go straight to the `Settings` ta
 
 Radarr should be ready out of the box, there are multiple settings and configurations that you can explore later but we are going to start with the basics.
 
-`Root Folders` is in the Media Management tab, here we add the `/MediaCenterBox/Completed/Movies/` folder. This will be the default derectory where all the TV Shows will be stored
+`Root Folders` is in the Media Management tab, here we add the `/MediaCenterBox/Completed/Movies/` folder. This will be the default directory where all the TV Shows will be stored
 
 ![Radarr Root Folders](img/RadarrRootFolder.png)
 
-`Download Clients` tab is where we'll configure links with our tdownload client Deluge.
+`Download Clients` tab is where we'll configure links with our download client Deluge.
 There are existing presets for these 2 that we'll fill with the proper configuration.
 
 Deluge configuration:
 
 ![Radarr Deluge configuration](img/RadarrDelugeConfig.png)
 
-Enable `Advanced Settings`, and tick `Remove Completed` in the Completed Download Handling section. This tells Sonarr to remove torrents from deluge once processed.
+Enable `Advanced Settings`, and tick `Remove Completed` in the Completed Download Handling section. This tells Sonarr to remove torrents from Deluge once processed.
 
 
 `Indexers` is the important tab: that's where Radarr will grab information about released episodes. This will be automatically configurated by [Prowlarr](#setup-prowlarr)
@@ -528,7 +525,7 @@ In `Connect` tab, we'll configure Sonarr to send notifications to Plex when a ne
 ***
 ### Setup Prowlarr
 
-[Prowlarr](https://prowlarr.com/) translates request from Sonarr and Radarr to searches for torrents on popular torrent websites.
+[Prowlarr](https://prowlarr.com/) translates requests from Sonarr and Radarr to searches for torrents on popular torrent websites.
 
 #### Prowlarr Docker container
 
@@ -563,17 +560,17 @@ To follow container logs, run `docker-compose logs -f prowlarr`.
 Prowlarr web UI is available on port 9696(`localhost:9696`, replace `localhost` by your machine ip if needed).
 
 
-On login it will request to setup a login method, any one works, as example i have used the forms option
+On login, it will request to set up a login method, anyone works, as an example i have used the forms option
 
 ![Prowlarr login setup](img/prowlarrLogin.png)
 
 
-Click on `Add Indexer` and add any torrent indexer that you like. I added 1337x as example.
+Click on `Add Indexer` and add any torrent indexer that you like. I added 1337x as an example.
 
 ![Prowlarr add indexer](img/prowlarrAddIndexer.png)
 
 
-Click on `Apps` and add the Sonarr and Radarr App, this will require a API key that you can get in the Radarr and Sonarr apps in the `Settings - General` then `Security`
+Click on `Apps` and add the Sonarr and Radarr App, this will require an API key that you can get in the Radarr and Sonarr apps in the `Settings - General` and then `Security`
 
 
 ![Prowlarr add Radarr App](img/RadarrAPIKey.png)
@@ -581,7 +578,7 @@ Click on `Apps` and add the Sonarr and Radarr App, this will require a API key t
 ![Prowlarr add Sonarr App](img/prowlarrAddRadarr.png)
 
 
-Do the Same for the Sonarr app and click in the `Sync App Indexers` button 
+Do the Same for the Sonarr app and click on the `Sync App Indexers` button 
 
 
 Now on Sonar and Radarr in the Settings - Indexers Tab it will show the indexer added in Prowlarr
@@ -632,60 +629,60 @@ To follow container logs, run `docker-compose logs -f bazarr`.
 
 The Web UI for Bazarr will be available on port 6767. Load it up and you will be greeted with this setup page:
 
-You can skip this page and go to the `Languages` tab. Here as an example i'm setting 2 laguages to be fetch, English and Portuguese
+You can skip this page and go to the `Languages` tab. Here is an example I'm setting 2 languages to be fetch, English and Portuguese
 
 ![Bazarr Languages](img/bazarrLanguage.png)
 
-Now we are going to create a profile that whill define the type of subtitles that we whant.
+Now we are going to create a profile that will define the type of subtitles that we want.
 
 ![Bazarr Languages Profile](img/bazarrLanguageProfile.png)
 
-At last we are going to set this profile as default for Movies and TV shows at the bottom of the page.
+At last, we are going to set this profile as default for Movies and TV shows at the bottom of the page.
 
 ![Bazarr Languages Profile](img/bazarrLanguageDefault.png)
 
 Hit Save on the top of the page and move to the next step.
 
 
-Now go to the `Providers` tab. Here you can add all the providers that you choose from the provided list, for not i will use  [Open Subtitles](https://www.opensubtitles.org/). If you don't have an account head on over to the [Registration page](https://www.opensubtitles.org/en/newuser) and make a new account. 
+Now go to the `Providers` tab. Here you can add all the providers that you choose from the provided list, for not I will use  [Open Subtitles](https://www.opensubtitles.org/). If you don't have an account head on over to the [Registration page](https://www.opensubtitles.org/en/newuser) and make a new account. 
 
 ![Bazarr Open Subtitles](img/bazarrProviderSetup.png)
 
 Hit Save on the top of the page and move to the next step.
 
 Now we are going to enable the Sonarr and Radarr integrations. Go to the Sonarr tab and hit the enabled toggle.
-Here we need to change the address to the `IP` otherweise bazerr will not detect, change the ip address of your machine, on my example is the `192.168.0.144`, and set the Sonarr API key as we have done during the [Prowlarr configuration](#prowlarr-configuration) then hit test.
+Here we need to change the address to the `IP` otherwise Bazarr will not detect, change the IP address of your machine, in my example is the `192.168.0.144`, and set the Sonarr API key as we have done during the [Prowlarr configuration](#prowlarr-configuration) then hit test.
 
 
 ![Bazarr Sonarr Configuration](img/bazarrSonarrConfiguration.png)
 
 Hit Save on the top of the page and move to the Radarr Tab, do the same steps as above but using the Radarr API key, then hit Save on the top of the page and move to the next step.
 
-After this setps you should see two new tabs, `Series` and `Movies`, this will be here where all the movies and tv shows are listed and the subtitles status of them. 
+After these steps you should see two new tabs, `Series` and `Movies`, this will be here where all the movies and tv shows are listed and the subtitles status of them. 
 
 ![Bazarr Finished Setup](img/bazarrFinishedSetup.png)
 
-After this all the required configurations are done and everything should work.
+After this, all the required configurations are done and everything should work.
 
 
 
 #### Testing
 
-Go to Radarr to the `Movies` tab and click on `Add New`, search for a Movie, i'm going to use `The Last Man on Earth (1964)` as is a Public Domain Movie.
-This will be automatically fill all the required information. You can adapt this parameters as you see fit. Make sure that you define a `Monitor` type so the movie is automatically downloaded
+Go to Radarr to the `Movies` tab and click on `Add New`, search for a Movie, I'm going to use `The Last Man on Earth (1964)` as is a Public Domain Movie.
+This will automatically fill in all the required information. You can adapt these parameters as you see fit. Make sure that you define a `Monitor` type so the movie is automatically downloaded
 
 
 
-No if you click in `Movies` tab the added movie will display with a collor showing the current status of it, some secconds after it should automatically start to download.
+Now if you click on `Movies` tab the added movie will display with a colour showing the current status of it, and some seconds after it should automatically start to download.
 ![Adding Flash Gordon (1954)](img/testingRadarrMovieAdded.png)
 
-Is also possible to manually serach and many other options but that is beyound the scope of this guide.
+Is also possible to manually search and many other options but that is beyond the scope of this guide.
 
 
 ![Download in progress deluge](img/testingDownload.png)
 
 
-When download is over, you can head over to Plex and chekc if the movie appeared correctly, with all metadata and subtitles grabbed automatically. 
+When the download is over, you can head over to Plex and check if the movie appeared correctly, with all metadata and subtitles grabbed automatically. 
 
 
 
@@ -704,12 +701,12 @@ The following containers are nice to have and are not required for the "mediaBox
 
 ### Setup Wireguard
 We'll use Wireguard Docker image from linuxserver [Docker image from linuxserver](https://hub.docker.com/r/linuxserver/wireguard )
-This container will allow to connect to all your services outside your home network exposing only one port
+This container will allow you to connect to all your services outside your home network exposing only one port
 
 
-_Note_: Its required to open the port 51820 in your routher to be abbe to connect with the vpn to your home network.
+_Note_: It's required to open port 51820 in your router to be abbe to connect with the VPN to your home network.
 
-The following website have some example of how to port forward for most of routhers: [portforward.com](https://portforward.com/router.htm)
+The following website has some example of how to port forward for most of routers: [portforward.com](https://portforward.com/router.htm)
 
 
 #### Wireguard Docker container
@@ -754,7 +751,7 @@ To follow container logs, run `docker-compose logs -f wireguard`.
 
 
 
-All the users credentials will be crated inside the config folder for wireguard ${ROOT}/MediaCenter/config/wireguard/peerX where peerX will be peer1, 2, 3,...
+All the user's credentials will be created inside the config folder for wireguard ${ROOT}/MediaCenter/config/wireguard/peerX where peerX will be peer1, 2, 3,...
 
 
 ***
@@ -764,9 +761,9 @@ All the users credentials will be crated inside the config folder for wireguard 
 
 We'll use Overseerr [official Docker image](https://hub.docker.com/r/sctx/overseerr)
 Overseerr is a request management and media discovery tool built to work with your existing Plex ecosystem.
-Overseerr helps you find media you want to watch. With inline recommendations and suggestions, you will find yourself deeper and deeper in a rabbit hole of content you never knew you just had to have.
+Overseerr helps you find media you want to watch. With inline recommendations and suggestions.
 
-It will allow you to request Movies and TV Shows without the need to go to Radarr ou Sonarr, this is really helpfull when there are other users in the system that we dont whant to give access to Sonarr or Radarr
+It will allow you to request Movies and TV Shows without the need to go to Radarr or Sonarr, this is really helpful when there are other users in the system that we do want to give access to Sonarr or Radarr for them to request movies.
 
 ### Overseerr Docker Container
 
@@ -797,12 +794,12 @@ The Web UI for Overseerr will be available on port 5055. Load it up and you will
 
 ![Overseerr start page](img/overseerr_startpage.png)
 
-You will need to login with your plex account.
+You will need to log in with your Plex account.
 
 In the following screen fill the requested information
 
 Server: Manual Configuration
-Hostmane or IP Address: your Plex Docker container IP
+Hostname or IP Address: your Plex Docker container IP
 Port: your Plex Docker container port
 
 Select the Libraries that you want to scan and hit Start Scan
@@ -811,11 +808,11 @@ Select the Libraries that you want to scan and hit Start Scan
 
 
 Radarr and Sonarr Setup
-in the follwing screen configure the both radarr and sonarr
+in the following screen configure the both Radarr and Sonarr
 
 ![Overseerr radar and sonar configuration](img/Overseerr_sonarr_radarr_setup.png)
 
-for each we need to define it as default server set the IP adress (the port should be the default one) and the API Key, them click on test.
+for each, we need to define it as the default server set the IP address (the port should be the default one) and the API Key, then click on test.
 after that fill the remaining settings with your desired configuration.
 
 
@@ -827,6 +824,6 @@ after that fill the remaining settings with your desired configuration.
 
 [Lunsea](https://www.lunasea.app/), Open source manager
 
-[nzb360](http://nzb360.com), more powerfull than lunasea  with an free and payd version. 
+[nzb360](http://nzb360.com), is more powerful than lunasea  with a free and paid version. 
 
-_Note_: This only work inside you home network.
+_Note_: This only work inside your home network.

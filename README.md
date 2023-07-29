@@ -307,7 +307,7 @@ NOTE(Not Advised): If you dont own a VPN and want to use this without VPN  use t
 
 You should be able to login on the web UI (`localhost:8112`, replace `localhost` by your machine ip if needed).
 
-![Deluge Login](img/delugeLogin.png)
+![Deluge Login](img/DelugeLogin.png)
 
 
 The default password is `deluge`. You are asked to modify it.

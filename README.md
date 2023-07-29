@@ -10,18 +10,18 @@ _Disclaimer: I'm not encouraging/supporting piracy, this is for information purp
 
 ## Table of Contents
 
-- [Quick Arr Stack](#Quick-Arr-Stack)
+- [Quick Arr Stack](#quick-arr-stack)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
   - [Hardware configuration](#hardware-configuration)
   - [Software stack](#software-stack)
-  - [Installation guide](#Installation-guide)
+  - [Installation guide](#installation-guide)
     - [Install docker and docker-compose](#install-docker-and-docker-compose)
-    - [Clone the repository](#Clone-the-repository)
-    - [Setup environment variables](#Setup-environment-variables)
+    - [Clone the repository](#clone-the-repository)
+    - [Setup environment variables](#setup-environment-variables)
     - [Setup a VPN Container](#setup-a-vpn-container)
-      - [VPN Option](#VPN-Option)
-      - [Folder Setup](#Folder-Structure)
+      - [VPN Option](#vpn-option)
+      - [Folder Setup](#folder-structure)
       - [purevpn.com custom setup](#purevpncom-custom-setup)
       - [Docker container](#vpn-docker-container)
     - [Setup Deluge](#setup-deluge)
@@ -31,26 +31,26 @@ _Disclaimer: I'm not encouraging/supporting piracy, this is for information purp
       - [Media Server Docker Container](#media-server-docker-container)
       - [Configuration](#plex-configuration)
     - [Setup Sonarr](#setup-sonarr)
-      - [Docker container](#Sonarr-docker-container)
+      - [Docker container](#sonarr-docker-container)
       - [Configuration](#sonarr-configuration)
     - [Setup Radarr](#setup-radarr)
-      - [Docker container](#Radarr-docker-container)
+      - [Docker container](#radarr-docker-container)
       - [Configuration](#radarr-configuration)
-    - [Setup Prowlarr](#setup-Prowlarr)
-      - [Docker container](#Prowlarr-Docker-container)
-      - [Configuration](#Prowlarr-configuration)
+    - [Setup Prowlarr](#setup-prowlarr)
+      - [Docker container](#prowlarr-docker-container)
+      - [Configuration](#prowlarr-configuration)
     - [Setup Bazarr](#setup-bazarr)
       - [Bazarr Docker container](#bazarr-docker-container)
       - [Bazarr Configuration](#bazarr-configuration)
-    - [Testing](#Testing)
-    - [Optional containers](#Optional-containers)
+    - [Testing](#testing)
+    - [Optional containers](#optional-containers)
       - [Setup Wireguard](#setup-wireguard)
         - [Docker container](#Wireguard-Docker-container)
-        - [Configuration and usage](#Wireguard-Configuration)
-      - [Setup Overseerr](#Overseerr-Setup)
-        - [Docker container](#Overseerr-Docker-Container)
-        - [Configuration and usage](#Overseerr-Configuration)
-  - [Manage it all from your mobile](#manage-it-all-from-your-mobile)
+        - [Configuration and usage](#Wireguard-configuration)
+      - [Setup Overseerr](#overseerr-setup)
+        - [Docker container](#overseerr-docker-container)
+        - [Configuration and usage](#overseerr-configuration)
+  - [Mobile Management](#mobile-management)
 
 ## Overview
 
@@ -443,7 +443,7 @@ Deluge configuration:
 Enable `Advanced Settings`, and tick `Remove Completed` in the Completed Download Handling section. This tells Sonarr to remove torrents from deluge once processed.
 
 
-`Indexers` is the important tab: that's where Sonarr will grab information about released episodes. This will be automatically configurated by [Prowlarr](#Setup-Prowlarr)
+`Indexers` is the important tab: that's where Sonarr will grab information about released episodes. This will be automatically configurated by [Prowlarr](#setup-prowlarr)
 
 
 In `Connect` tab, we'll configure Sonarr to send notifications to Plex when a new episode is ready:
@@ -503,7 +503,7 @@ Deluge configuration:
 Enable `Advanced Settings`, and tick `Remove Completed` in the Completed Download Handling section. This tells Sonarr to remove torrents from deluge once processed.
 
 
-`Indexers` is the important tab: that's where Radarr will grab information about released episodes. This will be automatically configurated by [Prowlarr](#Setup-Prowlarr)
+`Indexers` is the important tab: that's where Radarr will grab information about released episodes. This will be automatically configurated by [Prowlarr](#setup-prowlarr)
 
 
 In `Connect` tab, we'll configure Sonarr to send notifications to Plex when a new episode is ready:
@@ -640,7 +640,7 @@ Now go to the `Providers` tab. Here you can add all the providers that you choos
 Hit Save on the top of the page and move to the next step.
 
 Now we are going to enable the Sonarr and Radarr integrations. Go to the Sonarr tab and hit the enabled toggle.
-Here we need to change the address to the `IP` otherweise bazerr will not detect, change the ip address of your machine, on my example is the `192.168.0.144`, and set the Sonarr API key as we have done during the [Prowlarr configuration](#Prowlarr-configuration) then hit test.
+Here we need to change the address to the `IP` otherweise bazerr will not detect, change the ip address of your machine, on my example is the `192.168.0.144`, and set the Sonarr API key as we have done during the [Prowlarr configuration](#prowlarr-configuration) then hit test.
 
 
 ![Bazarr Sonarr Configuration](img/bazarrSonarrConfiguration.png)
@@ -805,7 +805,7 @@ after that fill the remaining settings with your desired configuration.
 
 
 
-## Manage it all from your mobile
+## Mobile Management
 
 [Lunsea](https://www.lunasea.app/), Open source manager
 

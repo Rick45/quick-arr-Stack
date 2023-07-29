@@ -103,18 +103,33 @@ services:
       - '${ROOT}/MediaCenter/config/plex/transcode:/transcode'
       - '${HDDSTORAGE}/Completed:/MediaCenterBox'
 
-  tautulli:
-    image: lscr.io/linuxserver/tautulli
-    container_name: tautulli
+
+### Optional Containers
+
+  wireguard:
+    image: ghcr.io/linuxserver/wireguard:latest
+    container_name: wireguard
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
     environment:
-      - 'PUID=${PUID}'
-      - 'PGID=${PGID}'
-      - 'TZ=${TZ}'
+      - PUID=${PUID} # default user id, defined in .env
+      - PGID=${PUID} # default user id, defined in .env
+      - TZ=${TZ} # timezone, defined in .env
+      - SERVERURL=${SERVERURL} # server public ip, auto to auto find, defined in .env
+      - SERVERPORT=51820 #optional
+      - PEERS=${PEERS} # number of clients to be auto configured, defined in .env
+      - PEERDNS=auto #optional
+      - INTERNAL_SUBNET=172.168.69.0 #optional, network for devices ips. CAN NOT be the same as your home network
+      - ALLOWEDIPS=0.0.0.0/0 #optional
     volumes:
-      - '${ROOT}/MediaCenter/config/tautulli:/config'
+      - ${ROOT}/MediaCenter/config/wireguard:/config # config folder
+      - /lib/modules:/lib/modules
     ports:
-      - 8181:8181
-    restart: unless-stopped
+      - 51820:51820/udp
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+    restart: always
   
   overseerr:
     image: 'sctx/overseerr:latest'
@@ -127,28 +142,3 @@ services:
     volumes:
       - '${ROOT}/MediaCenter/config/overseerr/config:/app/config'
     restart: unless-stopped
-
-  wireguard:
-    image: 'ghcr.io/linuxserver/wireguard:latest'
-    container_name: wireguard
-    cap_add:
-      - NET_ADMIN
-      - SYS_MODULE
-    environment:
-      - 'PUID=${PUID}'
-      - 'PGID=${PUID}'
-      - 'TZ=${TZ}'
-      - 'SERVERURL=${SERVERURL}'
-      - SERVERPORT=51820
-      - 'PEERS=${PEERS}'
-      - 'PEERDNS=1.1.1.1'
-      - INTERNAL_SUBNET=192.168.69.0
-      - ALLOWEDIPS=0.0.0.0/0
-    volumes:
-      - '${ROOT}/MediaCenter/config/wireguard:/config'
-      - '/lib/modules:/lib/modules'
-    ports:
-      - '51820:51820/udp'
-    sysctls:
-      - net.ipv4.conf.all.src_valid_mark=1
-    restart: always

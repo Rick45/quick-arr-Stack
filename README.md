@@ -239,15 +239,21 @@ Then run the container with `docker-compose up -d --remove-orphans`.
 
 To follow container logs, run `docker-compose logs -f vpn`.
 
+every time that you do changes in the VPN config file run ` docker-compose stop vpn` and then ` docker-compose start vpn` this will force the container to restart and load the new settings
+
+***
 
 
 ### Setup Deluge
 
+
+
 #### Deluge Docker container
 
-We'll use the deluge Docker image from linuxserver, which runs both the deluge daemon and web UI in a single container.
+_Note_: (Not Advised) If you don't own a VPN and want to use this without VPN  use the following compose, this WILL EXPOSE your real IP address.
 
 ```yaml
+
 deluge:
     container_name: deluge
     image: 'linuxserver/deluge:latest'
@@ -265,45 +271,13 @@ deluge:
 
 ```
 
-Things to notice:
-
-- I use the host network to simplify configuration. Important ports are `8112` (web UI) and `58846` (bittorrent daemon).
-
-Then run the container with `docker-compose up -d --remove-orphans`.
-
-To follow container logs, run `docker-compose logs -f deluge`.
-
-
-***
-
-#### Deluge Docker container
-
-NOTE(Not Advised): If you don't own a VPN and want to use this without VPN  use the following compose, this WILL EXPOSE your real IP address.
-```yaml
-
-  deluge:
-    container_name: deluge
-    image: 'linuxserver/deluge:latest'
-    restart: unless-stopped
-    environment:
-      - 'PUID=${PUID}'
-      - 'PGID=${PGID}'
-      - 'TZ=${TZ}'
-    volumes:
-      - '${ROOT}/MediaCenter/config/deluge:/config'
-      - '${HDDSTORAGE}:/MediaCenterBox'
-    #ports:
-    #  - '8112:8112' #uncomment if you are not using the VPN
-    network_mode: 'service:vpn' #comment/remove if you are not using the VPN
-    depends_on:                 #comment/remove if you are not using the VPN
-      - vpn                     #comment/remove if you are not using the VPN
-
-```
-
 
 #### Deluge Configuration
 
-##### NOTE: if the bellow page does not open and you are using the VPN normally it means that something is wrong with the VPN itself!
+_Note_: If the bellow page does not open and you are using the VPN normally it means that something is wrong with the VPN itself!
+
+run ` docker-compose stop deluge` and then ` docker-compose start deluge` everytime that you stop or start te VPN container as deluge dependes on it.
+
 
 You should be able to log in on the web UI (`localhost:8112`, replace `localhost` with your machine ip if needed).
 

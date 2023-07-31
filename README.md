@@ -87,6 +87,8 @@ This is composed of multiple tools working together to have an automated way to 
 
 - [Wireguard](https://github.com/linuxserver/docker-wireguard): is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. This will allow us to connect to our home network  from anywhere and use the Plex app outside of our house without using plex servers for routing.
 
+- [Portainer](https://github.com/portainer/portainer): This is a lightweight service that allow us to monitor all of our containers, we can see the status, logs and manage them directly there.
+
 ## Hardware configuration
 
 You can use an old Laptop with Debian, Raspberry Pi, a Synology NAS, or a Windows or Mac computer. The stack should work fine on all these systems, but you must adapt the Docker stack below to your OS. I'll only focus on a standard Linux installation here.
@@ -818,7 +820,7 @@ after that fill the remaining settings with your desired configuration.
 
 #### Portainer Setup
 
-We are going to use the official [Portainer Community Edition](https://github.com/portainer/portainer) image, this is a lightweight service that allow us to monitor all of our containers, we can see the status of them and the logs directly there.
+We are going to use the official [Portainer Community Edition](https://github.com/portainer/portainer) image, this is a lightweight service that allow us to monitor all of our containers, we can see the status, logs and manage them directly there.
 It will require a registration in the Portainer website to get a free license.
 
 

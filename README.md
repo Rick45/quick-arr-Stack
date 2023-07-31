@@ -178,7 +178,7 @@ Things to notice:
 
 #### Folder Structure
 
-Currently, I'm doing this in this way as it is(from what I found) the most straightforward method to have the [Hard link](https://en.wikipedia.org/wiki/Hard_link) for files to work without issues, this halves the amount of size while the torrent is seeding, and solve some access issues that I first while doing this setup.
+Currently, I'm doing this in this way as it is(from what I found) the most straightforward method to have the [Hard link](https://en.wikipedia.org/wiki/Hard_link) for files to work without issues, this halves the amount of size while the torrent is seeding, and solve some access issues that I found while doing this setup.
 
 
 Inside the folder from where you cloned the repository run the following command:  `docker-compose up -d --remove-orphans`.

@@ -17,6 +17,7 @@ _Disclaimer: I'm not encouraging/supporting piracy, this is for information only
   - [Software stack](#software-stack)
   - [Installation guide](#installation-guide)
     - [Install docker and docker-compose](#install-docker-and-docker-compose)
+    - [Helpfull Docker Commands](#helpfull-docker-commands)
     - [Clone the repository](#clone-the-repository)
     - [Setup environment variables](#setup-environment-variables)
     - [Folder Setup](#folder-structure)
@@ -50,6 +51,9 @@ _Disclaimer: I'm not encouraging/supporting piracy, this is for information only
       - [Setup Overseerr](#overseerr-setup)
         - [Docker container](#overseerr-docker-container)
         - [Configuration and usage](#overseerr-configuration)
+      - [Setup Portainer](#portainer-setup)
+        - [Docker container](#portainer-docker-container)
+        - [Configuration and usage](#portainer-configuration)
   - [Mobile Management](#mobile-management)
 
 ## Overview
@@ -106,6 +110,26 @@ Make sure it works fine:
 `docker run hello-world`
 
 Also, install docker-compose (see the [official instructions](https://docs.docker.com/compose/install/#install-compose)).
+
+### Helpfull Docker Commands
+
+```sh
+#Check the Status of all docker containers:
+docker container ls --format "{{.Names}} || state {{.State}} {{.Status}} || ID {{.ID}}"
+
+#Restart a specific container:
+docker-compose restart CONTAINER_NAME
+
+#To follow container logs:
+docker-compose logs -f CONTAINER_NAME
+
+#To update all containers:
+docker-compose stop
+docker-compose pull
+docker-compose start
+
+```
+
 
 ### Clone the repository
 
@@ -239,7 +263,7 @@ Then run the container with `docker-compose up -d --remove-orphans`.
 
 To follow container logs, run `docker-compose logs -f vpn`.
 
-every time that you do changes in the VPN config file run ` docker-compose stop vpn` and then ` docker-compose start vpn` this will force the container to restart and load the new settings
+every time that you do changes in the VPN config file run `docker-compose restart vpn` this will force the container to restart and load the new settings
 
 ***
 
@@ -276,7 +300,7 @@ deluge:
 
 _Note_: If the bellow page does not open and you are using the VPN normally it means that something is wrong with the VPN itself!
 
-run ` docker-compose stop deluge` and then ` docker-compose start deluge` everytime that you stop or start te VPN container as deluge dependes on it.
+run `docker-compose restart deluge` everytime that you stop or start te VPN container as deluge dependes on it.
 
 
 You should be able to log in on the web UI (`localhost:8112`, replace `localhost` with your machine ip if needed).
@@ -792,6 +816,39 @@ after that fill the remaining settings with your desired configuration.
 
 ![Overseerr radar sample configuration](img/Overseerr_radarr_setup.png)
 
+#### Portainer Setup
+
+We are going to use the official [Portainer Community Edition](https://github.com/portainer/portainer) image, this is a lightweight service that allow us to monitor all of our containers, we can see the status of them and the logs directly there.
+It will require a registration in the Portainer website to get a free license.
+
+
+### Portainer Docker Container
+
+
+```sh
+docker volume create portainer_data
+
+docker run -d -p 8000:8000 -p 9444:9443 -p 9000:9000 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ee:latest
+```
+
+
+#### Portainer Configuration
+
+
+The Web UI for Portainer will be available on port 9000. Load it up and you will be greeted with the admin creation page.
+Add an user name and password and hit `Create User`
+
+![Portainer Admin Creation](img/PortainerConfiguration.png)
+
+In the next page click in `Don't have a license?` and request a free one and insert it here and click on submit.
+
+![Portainer Admin Creation](img/PortainerRegister.png)
+
+Here just click in `Get Started` and you will be redirected to the `Environments` page.
+Select your environment click on `Stack` and them on the `quick-arr-stack`.
+In this page you can see all you containers for this stack and multiple options to manage them.
+
+![Portainer Admin Creation](img/PortainerConainers.png)
 
 
 ## Mobile Management

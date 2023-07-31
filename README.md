@@ -824,7 +824,7 @@ We are going to use the official [Portainer Community Edition](https://github.co
 It will require registration on the Portainer website to get a free license.
 
 
-### Portainer Docker Container
+#### Portainer Docker Container
 
 
 ```sh
@@ -834,7 +834,7 @@ docker run -d -p 8000:8000 -p 9444:9443 -p 9000:9000 --name portainer --restart=
 ```
 
 
-#### Portainer Configuration
+### Portainer Configuration
 
 
 The Web UI for Portainer will be available on port 9000. Load it up and you will be greeted with the admin creation page.

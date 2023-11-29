@@ -58,7 +58,7 @@ _Disclaimer: I'm not encouraging/supporting piracy, this is for information only
 
 ## Overview
 
-This is a quick guide of how to build a server with a [Servarr stack](https://wiki.servarr.com/)
+This is a quick guide on how to build a server with a [Servarr stack](https://wiki.servarr.com/)
 
 How does it work?
 
@@ -85,9 +85,9 @@ This is composed of multiple tools working together to have an automated way to 
 
 - [Overseerr](https://overseerr.dev/):  is a free and open source software application for managing requests for your media library. It integrates with your existing services, such as Sonarr, Radarr, and Plex!
 
-- [Wireguard](https://github.com/linuxserver/docker-wireguard): is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. This will allow us to connect to our home network  from anywhere and use the Plex app outside of our house without using plex servers for routing.
+- [Wireguard](https://github.com/linuxserver/docker-wireguard): is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. This will allow us to connect to our home network  from anywhere and use the Plex app outside of our house without using Plex servers for routing.
 
-- [Portainer](https://github.com/portainer/portainer): This is a lightweight service that allow us to monitor all of our containers, we can see the status, logs and manage them directly there.
+- [Portainer](https://github.com/portainer/portainer): This is a lightweight service that allows us to monitor all of our containers, we can see the status, logs and manage them directly there.
 
 ## Hardware configuration
 
@@ -178,7 +178,7 @@ Things to notice:
 
 #### Folder Structure
 
-Currently, I'm doing this in this way as it is(from what I found) the most straightforward method to have the [Hard link](https://en.wikipedia.org/wiki/Hard_link) for files to work without issues, this halves the amount of size while the torrent is seeding, and solve some access issues that I first while doing this setup.
+Currently, I'm doing this in this way as it is(from what I found) the most straightforward method to have the [Hard link](https://en.wikipedia.org/wiki/Hard_link) for files to work without issues, this halves the amount of size while the torrent is seeding, and solve some access issues that I found while doing this setup.
 
 
 Inside the folder from where you cloned the repository run the following command:  `docker-compose up -d --remove-orphans`.
@@ -820,11 +820,11 @@ after that fill the remaining settings with your desired configuration.
 
 #### Portainer Setup
 
-We are going to use the official [Portainer Community Edition](https://github.com/portainer/portainer) image, this is a lightweight service that allow us to monitor all of our containers, we can see the status, logs and manage them directly there.
-It will require a registration in the Portainer website to get a free license.
+We are going to use the official [Portainer Community Edition](https://github.com/portainer/portainer) image, this is a lightweight service that allows us to monitor all of our containers, we can see the status, logs and manage them directly there.
+It will require registration on the Portainer website to get a free license.
 
 
-### Portainer Docker Container
+#### Portainer Docker Container
 
 
 ```sh
@@ -834,21 +834,21 @@ docker run -d -p 8000:8000 -p 9444:9443 -p 9000:9000 --name portainer --restart=
 ```
 
 
-#### Portainer Configuration
+### Portainer Configuration
 
 
 The Web UI for Portainer will be available on port 9000. Load it up and you will be greeted with the admin creation page.
-Add an user name and password and hit `Create User`
+Add an username and password and hit `Create User`
 
 ![Portainer Admin Creation](img/PortainerConfiguration.png)
 
-In the next page click in `Don't have a license?` and request a free one and insert it here and click on submit.
+On the next page click on `Don't have a license?` and request a free one and insert it here and click on submit.
 
 ![Portainer Admin Creation](img/PortainerRegister.png)
 
-Here just click in `Get Started` and you will be redirected to the `Environments` page.
-Select your environment click on `Stack` and them on the `quick-arr-stack`.
-In this page you can see all you containers for this stack and multiple options to manage them.
+Here just click on `Get Started` and you will be redirected to the `Environments` page.
+Select your environment click on `Stack` and then on the `quick-arr-stack`.
+On this page, you can see all your containers for this stack and multiple options to manage them.
 
 ![Portainer Admin Creation](img/PortainerConainers.png)
 

@@ -853,6 +853,10 @@ On this page, you can see all your containers for this stack and multiple option
 ![Portainer Admin Creation](img/PortainerConainers.png)
 
 
+## Media Management Script
+
+[arr-stack-manager](https://github.com/Rick45/arr-Stack-Manager), a small script that delete watched data after X days
+
 ## Mobile Management
 
 [Lunsea](https://www.lunasea.app/), Open source manager

@@ -763,7 +763,7 @@ We'll use Overseerr [official Docker image](https://hub.docker.com/r/sctx/overse
 Overseerr is a request management and media discovery tool built to work with your existing Plex ecosystem.
 Overseerr helps you find media you want to watch. With inline recommendations and suggestions.
 
-It will allow you to request Movies and TV Shows without the need to go to Radarr or Sonarr, this is really helpful when there are other users in the system that we do want to give access to Sonarr or Radarr for them to request movies.
+It will allow you to request Movies and TV Shows without the need to go to Radarr or Sonarr, this is really helpful when there are other users in the system that we do not want to give access to Sonarr or Radarr for them to request movies or tv shows.
 
 ### Overseerr Docker Container
 

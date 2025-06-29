@@ -868,3 +868,7 @@ _Note_: This only work inside your home network.
 
 ## Thanks
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/rick45)
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Rick45/quick-arr-Stack&type=Date)](https://www.star-history.com/#Rick45/quick-arr-Stack&Date)

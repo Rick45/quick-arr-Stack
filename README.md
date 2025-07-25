@@ -763,7 +763,7 @@ We'll use Overseerr [official Docker image](https://hub.docker.com/r/sctx/overse
 Overseerr is a request management and media discovery tool built to work with your existing Plex ecosystem.
 Overseerr helps you find media you want to watch. With inline recommendations and suggestions.
 
-It will allow you to request Movies and TV Shows without the need to go to Radarr or Sonarr, this is really helpful when there are other users in the system that we do want to give access to Sonarr or Radarr for them to request movies.
+It will allow you to request Movies and TV Shows without the need to go to Radarr or Sonarr, this is really helpful when there are other users in the system that we do not want to give access to Sonarr or Radarr for them to request movies or tv shows.
 
 ### Overseerr Docker Container
 
@@ -853,6 +853,10 @@ On this page, you can see all your containers for this stack and multiple option
 ![Portainer Admin Creation](img/PortainerConainers.png)
 
 
+## Media Management Script
+
+[arr-stack-manager](https://github.com/Rick45/arr-Stack-Manager), a small script that delete watched data after X days
+
 ## Mobile Management
 
 [Lunsea](https://www.lunasea.app/), Open source manager
@@ -860,3 +864,11 @@ On this page, you can see all your containers for this stack and multiple option
 [nzb360](http://nzb360.com), is more powerful than lunasea  with a free and paid version. 
 
 _Note_: This only work inside your home network.
+
+
+## Thanks
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/rick45)
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Rick45/quick-arr-Stack&type=Date)](https://www.star-history.com/#Rick45/quick-arr-Stack&Date)

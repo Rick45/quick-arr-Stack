@@ -22,7 +22,7 @@ services:
 
   deluge:
     container_name: deluge
-    image: 'linuxserver/deluge:latest'
+    image: 'lscr.io/linuxserver/deluge:latest'
     restart: unless-stopped
     environment:
       - 'PUID=${PUID}'
@@ -52,7 +52,7 @@ services:
 
   sonarr:
     container_name: sonarr
-    image: 'linuxserver/sonarr:latest'
+    image: 'lscr.io/linuxserver/sonarr:latest'
     restart: unless-stopped
     network_mode: host
     environment:
@@ -65,7 +65,7 @@ services:
       - '${HDDSTORAGE}:/MediaCenterBox'
   radarr:
     container_name: radarr
-    image: 'linuxserver/radarr:latest'
+    image: 'lscr.io/linuxserver/radarr:latest'
     restart: unless-stopped
     network_mode: host
     environment:
@@ -79,7 +79,7 @@ services:
       
   bazarr:
     container_name: bazarr
-    image: 'linuxserver/bazarr:latest'
+    image: 'lscr.io/linuxserver/bazarr:latest'
     restart: unless-stopped
     #network_mode: host
     environment:

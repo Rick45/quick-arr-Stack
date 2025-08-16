@@ -116,7 +116,7 @@ services:
       - SYS_MODULE
     environment:
       - PUID=${PUID} # default user id, defined in .env
-      - PGID=${PUID} # default user id, defined in .env
+      - PGID=${PGID} # default group id, defined in .env
       - TZ=${TZ} # timezone, defined in .env
       - SERVERURL=${SERVERURL} # server public ip, auto to auto find, defined in .env
       - SERVERPORT=51820 #optional

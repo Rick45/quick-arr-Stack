@@ -232,7 +232,7 @@ _Note_: this section only applies for [PureVPN](purevpn.com) accounts.
 1. Delete all content in `${ROOT}/config/vpn` and replace it with the ones available in the repo folder `Config Files\config\vpn(PureVPN)`
 1. Download the openVPN file from [PureVPN website](https://support.purevpn.com/openvpn-files).
 1. Open the file in the udp folder related to the country/connection that you want to use.
-1. Copy the remote value in the file and replace it on the vpn.conf file that is 
+1. Copy the remote value in the file and replace it on the vpn.conf file that is in `${ROOT}/config/vpn`
 
 
 #### VPN Docker container

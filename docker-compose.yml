@@ -147,7 +147,7 @@ services:
     restart: always
   
   overseerr:
-     image: ghcr.io/seerr-team/seerr:latest
+    image: ghcr.io/seerr-team/seerr:latest
     container_name: overseerr
     environment:
       - LOG_LEVEL=debug
